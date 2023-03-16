@@ -1,0 +1,23 @@
+extend schema
+  @link(
+    url: "https://specs.apollo.dev/federation/v2.3"
+    import: [
+      "@key"
+      "@inaccessible"
+      "@external"
+      "@tag"
+      "@shareable"
+      "@requires"
+      "@provides"
+      "@interfaceObject"
+    ]
+  )
+
+type Media @key(fields: "id") @interfaceObject {
+  id: ID!
+  reviews: [Review!]!
+}
+
+type Review {
+  score: Int!
+}

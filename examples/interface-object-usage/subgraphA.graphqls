@@ -1,0 +1,28 @@
+extend schema
+  @link(
+    url: "https://specs.apollo.dev/federation/v2.3"
+    import: [
+      "@key"
+      "@inaccessible"
+      "@external"
+      "@tag"
+      "@shareable"
+      "@requires"
+      "@provides"
+      "@interfaceObject"
+    ]
+  )
+
+interface Media {
+  id: ID!
+  title: String!
+}
+
+type Book implements Media @key(fields: "id") {
+  id: ID!
+  title: String!
+}
+
+type Query {
+  topRatedMedia: [Media!]!
+}
